@@ -14,6 +14,7 @@
 		0402C5221B89C3A2006D50C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0402C5211B89C3A2006D50C7 /* Images.xcassets */; };
 		0402C5251B89C3A2006D50C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0402C5231B89C3A2006D50C7 /* LaunchScreen.xib */; };
 		0402C5311B89C3A2006D50C7 /* AWSVideoTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402C5301B89C3A2006D50C7 /* AWSVideoTestTests.m */; };
+		968616D33D91D01A14156040 /* libPods-AWSVideoTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E646DFF402D37B4487EFE8 /* libPods-AWSVideoTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,9 @@
 		0402C52A1B89C3A2006D50C7 /* AWSVideoTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSVideoTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0402C52F1B89C3A2006D50C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0402C5301B89C3A2006D50C7 /* AWSVideoTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSVideoTestTests.m; sourceTree = "<group>"; };
+		069AA94B112F5AC2E5DE599E /* Pods-AWSVideoTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSVideoTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWSVideoTest/Pods-AWSVideoTest.debug.xcconfig"; sourceTree = "<group>"; };
+		3BA45C6ECEE31FE08C6A4EF9 /* Pods-AWSVideoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWSVideoTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWSVideoTest/Pods-AWSVideoTest.release.xcconfig"; sourceTree = "<group>"; };
+		B1E646DFF402D37B4487EFE8 /* libPods-AWSVideoTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWSVideoTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968616D33D91D01A14156040 /* libPods-AWSVideoTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,8 @@
 				0402C5131B89C3A2006D50C7 /* AWSVideoTest */,
 				0402C52D1B89C3A2006D50C7 /* AWSVideoTestTests */,
 				0402C5121B89C3A2006D50C7 /* Products */,
+				9BB8250C137FC24F759F82E5 /* Pods */,
+				D7F1BAA926FE19C271F4D7D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +126,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9BB8250C137FC24F759F82E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				069AA94B112F5AC2E5DE599E /* Pods-AWSVideoTest.debug.xcconfig */,
+				3BA45C6ECEE31FE08C6A4EF9 /* Pods-AWSVideoTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D7F1BAA926FE19C271F4D7D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1E646DFF402D37B4487EFE8 /* libPods-AWSVideoTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0402C5341B89C3A2006D50C7 /* Build configuration list for PBXNativeTarget "AWSVideoTest" */;
 			buildPhases = (
+				8EAD7571B8127571A9B09DFC /* Check Pods Manifest.lock */,
 				0402C50D1B89C3A2006D50C7 /* Sources */,
 				0402C50E1B89C3A2006D50C7 /* Frameworks */,
 				0402C50F1B89C3A2006D50C7 /* Resources */,
+				3CE9ADC884AEA8E422ECF8DF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +239,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3CE9ADC884AEA8E422ECF8DF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWSVideoTest/Pods-AWSVideoTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8EAD7571B8127571A9B09DFC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0402C50D1B89C3A2006D50C7 /* Sources */ = {
@@ -345,6 +404,7 @@
 		};
 		0402C5351B89C3A2006D50C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 069AA94B112F5AC2E5DE599E /* Pods-AWSVideoTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AWSVideoTest/Info.plist;
@@ -356,6 +416,7 @@
 		};
 		0402C5361B89C3A2006D50C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BA45C6ECEE31FE08C6A4EF9 /* Pods-AWSVideoTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AWSVideoTest/Info.plist;
@@ -418,6 +479,7 @@
 				0402C5361B89C3A2006D50C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0402C5371B89C3A2006D50C7 /* Build configuration list for PBXNativeTarget "AWSVideoTestTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +488,7 @@
 				0402C5391B89C3A2006D50C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
