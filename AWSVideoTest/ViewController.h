@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "SVProgressHUD.h"
+#import "AppDelegate.h"
 
 #define showAlert(title,msg) [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show]
 
@@ -23,5 +25,6 @@
 
 - (IBAction)selectVideoButtonClicked:(id)sender;
 
+- (IBAction)uploadButtonClicked:(id)sender;
 @end
 

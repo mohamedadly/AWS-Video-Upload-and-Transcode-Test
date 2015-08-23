@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D85B01363DD2B5B4FB5A6D82"
-               BuildableName = "libAWSS3.a"
-               BlueprintName = "AWSS3"
+               BlueprintIdentifier = "64E5FB44A11506C5D2EEE184"
+               BuildableName = "libSVProgressHUD.a"
+               BlueprintName = "SVProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

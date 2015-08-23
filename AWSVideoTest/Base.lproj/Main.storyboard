@@ -41,13 +41,25 @@
                                     <action selector="selectVideoButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QzV-30-If8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvO-GN-Zdd">
+                                <rect key="frame" x="244" y="255" width="112" height="31"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Upload to S3">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0Hs-eb-xOZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="r8p-pK-zHM" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="69" id="4jC-Ly-lBA"/>
+                            <constraint firstAttribute="centerX" secondItem="hvO-GN-Zdd" secondAttribute="centerX" id="5qg-sj-UuD"/>
                             <constraint firstAttribute="centerX" secondItem="ZNi-Sx-uJM" secondAttribute="centerX" id="Fjh-Y6-orL"/>
                             <constraint firstItem="r8p-pK-zHM" firstAttribute="top" secondItem="yDK-we-zdi" secondAttribute="bottom" constant="8" symbolic="YES" id="Lt2-2o-Rh8"/>
                             <constraint firstItem="r8p-pK-zHM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="NVl-RK-yqq"/>
+                            <constraint firstItem="hvO-GN-Zdd" firstAttribute="top" secondItem="ZNi-Sx-uJM" secondAttribute="bottom" constant="26" id="T3T-AG-KK0"/>
                             <constraint firstAttribute="centerX" secondItem="r8p-pK-zHM" secondAttribute="centerX" id="eyo-96-a3K"/>
                             <constraint firstItem="ZNi-Sx-uJM" firstAttribute="top" secondItem="r8p-pK-zHM" secondAttribute="bottom" constant="82" id="q7D-Dl-K8V"/>
                             <constraint firstAttribute="centerX" secondItem="yDK-we-zdi" secondAttribute="centerX" id="vWj-q5-c19"/>

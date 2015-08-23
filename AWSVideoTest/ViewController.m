@@ -13,6 +13,11 @@
 @end
 
 @implementation ViewController
+{
+    //URL for the recorded video
+    NSURL *videoURL;
+    NSString *videoFileName;
+}
 
 - (void)viewDidLoad
 {
@@ -39,6 +44,31 @@
     [sheet showInView:self.view];
 }
 
+- (IBAction)uploadButtonClicked:(id)sender
+{
+    if (videoURL)
+    {
+        //Show HUD
+        [SVProgressHUD showWithStatus:@"Uploading to S3"];
+        
+        //Create upload request
+        videoFileName = [[NSProcessInfo processInfo] globallyUniqueString];
+        AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+        uploadRequest.body = videoURL;
+        uploadRequest.key = videoFileName;
+        uploadRequest.bucket = AWS_BUCKET_IN;
+        
+        
+        //initiate upload ASYNC
+        [self upload:uploadRequest];
+
+    }
+    else
+    {
+        showAlert(@"Error", @"Please select a video first.");
+    }
+}
+
 #pragma mark - UIActionSheetDelegate
 
 -(void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -60,12 +90,12 @@
                     }
                     else
                     {
-                        showAlert(@"Recording with camera is not supported by this device.", @"Sorry");
+                        showAlert(@"Sorry", @"Recording with camera is not supported by this device.");
                     }
                 }
                 else
                 {
-                    showAlert(@"Recording with camera is not supported by this device.", @"Sorry");
+                    showAlert(@"Sorry", @"Recording with camera is not supported by this device.");
                 }
             }
                 break;
@@ -77,7 +107,7 @@
                 }
                 else
                 {
-                    showAlert(@"Photo Library is empty or not supported by this device.", @"Sorry");
+                    showAlert(@"Sorry", @"Photo Library is empty or not supported by this device.");
                 }
             }
                 break;
@@ -108,6 +138,62 @@
     }
     
     [self presentViewController:picker animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+-(void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    videoURL = info[UIImagePickerControllerMediaURL];
+    if (videoURL)
+    {
+        [self.statusTextField setText:@"video is ready to upload."];
+    }
+    
+    //Dismiss
+    [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    //Dismiss
+    [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - AWS
+
+- (void)upload:(AWSS3TransferManagerUploadRequest *)uploadRequest
+{
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    
+    [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
+        if (task.error)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.statusTextField setText:@" Upload Failed, check console..."];
+            });
+            NSLog(@"Upload Failed: [%@]", task.error);
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.statusTextField setText:@"Video Uploaded to S3, check console..."];
+            });
+        }
+        
+        if (task.result)
+        {
+            NSLog(@"Upload Result: [%@]", task.result);
+        }
+        
+        //dismiss HUD
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+        
+        return nil;
+    }];
 }
 
 @end
